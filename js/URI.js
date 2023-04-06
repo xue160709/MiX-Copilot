@@ -11,6 +11,7 @@ const url = `https://api.notion.com/v1/oauth/token?grant_type=authorization_code
 
 fetch(url, {
     method: 'POST',
+    mode: 'no-cors', // 添加这个选项
     headers: {
         'Content-Type': 'application/json',
         'Notion-Version': '2021-08-16'
