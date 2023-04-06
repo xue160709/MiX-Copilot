@@ -9,22 +9,18 @@ const redirectUri = 'https://www.mix-copilot.com/';
 
 const url = `https://api.notion.com/v1/oauth/token?grant_type=authorization_code&code=${code}&client_id=${clientId}&client_secret=${clientSecret}&redirect_uri=${redirectUri}`;
 
-fetch(url, {
+const requestOptions = {
     method: 'POST',
     mode: 'no-cors', // 添加这个选项
     headers: {
-        'Content-Type': 'application/json',
-        'Notion-Version': '2021-08-16'
-    }
-}).then(response => {
-    if (!response.ok) {
-        throw new Error('Failed to get access token');
-    }
-    return response.json();
-}).then(data => {
-    const accessToken = data.access_token;
-    console.log(accessToken);
-    // Use the access token to call Notion API
-}).catch(error => {
-    console.error(error);
-});
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+        message: 'Hello, World!'
+    })
+};
+
+fetch('url', requestOptions)
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error(error));
