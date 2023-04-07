@@ -10,6 +10,7 @@ const base64Auth = btoa(`${clientId}:${clientSecret}`);
 
 fetch("https://api.notion.com/v1/oauth/token", {
     method: "POST",
+    mode: 'no-cors',
     headers: {
         "Content-Type": "application/json",
         Authorization: `Basic ${btoa(`${clientId}:${clientSecret}`)}`,
