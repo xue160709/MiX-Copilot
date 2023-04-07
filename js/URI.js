@@ -12,7 +12,7 @@ fetch("https://api.notion.com/v1/oauth/token", {
     method: "POST",
     headers: {
         "Content-Type": "application/json",
-        Authorization: `Basic ${btoa(`${client_id}:${client_secret}`)}`,
+        Authorization: `Basic ${btoa(`${clientId}:${clientSecret}`)}`,
     },
     body: JSON.stringify({
         grant_type: "authorization_code",
